@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FF05FD77-258D-CD16-ACBD-D0DC028055F5}</ProjectGuid>
+    <ProjectGuid>{5D498348-00E7-AED9-47A6-D9C8B5C64160}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,31 +71,31 @@
      <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
      <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/desenvolvimento/FURB/DPM/ui-responsiva/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/desenvolvimento/FURB/DPM/DPM_2020-1_Equipe_03/Unidade 3/A7/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
