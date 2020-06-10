@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuMapa.unity
+    guid: 6ea7dbf2474306d41bc9b2da83fdab82
+  - enabled: 1
+    path: Assets/Scenes/MenuCamera.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/MenuInfo.unity
+    guid: d8c73f46f6fd1e34faddbd8f4d7a9c2c
+  - enabled: 1
+    path: Assets/Scenes/SIS.unity
+    guid: 07b2e37bda7caf14d9ebb06cb7e20ff0
+  - enabled: 1
+    path: Assets/Scenes/Artes Visuais.unity
+    guid: d3e9cc03f8f10c6498c069f03cbbd2b0
+  - enabled: 1
+    path: Assets/Scenes/BCC.unity
+    guid: 432c4cbfa3597b948a6f9e67c595d492
+  - enabled: 1
+    path: "Assets/Scenes/Dan\xE7a.unity"
+    guid: 444784ee770794b4789ff5e1dca6d385
+  - enabled: 1
+    path: Assets/Scenes/Design.unity
+    guid: 1939556379cbeee42b277b19a5f90a4f
+  - enabled: 1
+    path: Assets/Scenes/Moda.unity
+    guid: ed0c995c3b15f2249a6f9f05be464edd
+  - enabled: 1
+    path: Assets/Scenes/Psicologia.unity
+    guid: e170c68d6d8dd7d4e8cef7f4e3eb78c0
+  - enabled: 1
+    path: "Assets/Scenes/Ci\xEAncias Sociais.unity"
+    guid: 989a3137dbe7ae246b3b3b14b9e7b491
+  - enabled: 1
+    path: Assets/Scenes/Direito.unity
+    guid: 51cfaa50f76bfa3409aba19306873b6e
+  - enabled: 1
+    path: Assets/Scenes/Fisioterapia.unity
+    guid: 9d26b0c28d1b18448b487d3b81f6ef5f
+  m_configObjects: {}
