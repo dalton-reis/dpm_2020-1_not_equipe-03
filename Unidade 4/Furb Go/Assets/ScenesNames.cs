@@ -8,7 +8,7 @@ namespace Assets
 {
     public static class ScenesNames
     {
-        public static string MapaFurb => "MapaFurb";
+        public static string MapaFurb => "MenuMapa";
         public static string Resultado => "Resultado";
         public static string ResultadoDescricao => "ResultadoDescricao";
     }

@@ -14,6 +14,7 @@ public class Map : MonoBehaviour
     public string[] locais;
     public void SetSelected(string bloco)
     {
+        Resultado.UltimoBlocoVisitado = string.Empty;
         Instrucoes = new Dictionary<Bloco, string>();
         bloco = bloco.Remove(0, 6);
         var find = new Caminhos();
