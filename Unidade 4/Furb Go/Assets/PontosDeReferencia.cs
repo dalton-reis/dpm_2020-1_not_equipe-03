@@ -20,12 +20,7 @@ namespace Assets
         public static string UParaR => "ande para a direita, seguindo a calçada e passando a antena, atravesse o corredor e vire a sua direita";
         public static string STParaQ => "ande para esquerda até sair do bloco e encontrar a interseção, ande para trás até o estacionamento, dobre para a sua direita e siga em frente, mantendo se a esquerda descendo o desnível no fim do estacionamento";
         public static string QParaRST => "ande para a esquerda, suba a rua até o estacionamento";
-        public static string FParaC => "suba um nível pelas escadas";
-
-
-
-
-
+        public static string FParaC => "suba um andar pelas escadas";
 
     }
 }

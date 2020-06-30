@@ -7,6 +7,7 @@ using UnityEngine;
 public class Caminhos : MonoBehaviour
 {
     public static List<Bloco> blocos = new List<Bloco>();
+    public static List<List<Bloco>> listaBlocos = new List<List<Bloco>>();
     private bool achouCaminho = false;
 
     private List<Bloco> caminhos = new List<Bloco>();
@@ -22,7 +23,7 @@ public class Caminhos : MonoBehaviour
         Bloco A = new Bloco("A", -3, 0);
         Bloco B = new Bloco("B", -2, 0);
         Bloco C = new Bloco("C", -1, 0);
-        Bloco D = new Bloco("D", 0, 1); // Exceção
+        Bloco D = new Bloco("D", 0, 0); // Exceção
         Bloco E = new Bloco("E", 0, 0);
         Bloco F = new Bloco("F", 1, 0);
         Bloco G = new Bloco("G", 2, 0);
@@ -50,7 +51,7 @@ public class Caminhos : MonoBehaviour
         I.Vizinhos = new List<Bloco>() { B, C, T, S, R, Q };
         T.Vizinhos = new List<Bloco>() { I, S, Q };
         S.Vizinhos = new List<Bloco>() { T, R, I, W, V, U, Q };
-        R.Vizinhos = new List<Bloco>() { Q, S, I, U};
+        R.Vizinhos = new List<Bloco>() { Q, S, I, U };
         Q.Vizinhos = new List<Bloco>() { I, R, S, T };
         U.Vizinhos = new List<Bloco>() { V, R };
         V.Vizinhos = new List<Bloco>() { U, W, S };
@@ -73,6 +74,27 @@ public class Caminhos : MonoBehaviour
         };
         A.PontosReferencia.Add(M, PontosDeReferencia.AParaM);
 
+        B.PontosReferencia.Add(I, PontosDeReferencia.BParaI);
+
+        C.PontosReferencia.Add(F, PontosDeReferencia.CParaF);
+        C.PontosReferencia.Add(I, PontosDeReferencia.CParaI);
+
+        M.PontosReferencia.Add(A, PontosDeReferencia.MParaA);
+
+        R.PontosReferencia.Add(Q, PontosDeReferencia.RParaQ);
+        R.PontosReferencia.Add(U, PontosDeReferencia.RParaU);
+
+        U.PontosReferencia.Add(R, PontosDeReferencia.UParaR);
+
+        S.PontosReferencia.Add(Q, PontosDeReferencia.STParaQ);
+
+        T.PontosReferencia.Add(Q, PontosDeReferencia.STParaQ);
+
+        Q.PontosReferencia.Add(R, PontosDeReferencia.QParaRST);
+        Q.PontosReferencia.Add(S, PontosDeReferencia.QParaRST);
+        Q.PontosReferencia.Add(T, PontosDeReferencia.QParaRST);
+
+        F.PontosReferencia.Add(C, PontosDeReferencia.FParaC);
 
         blocos.AddRange(new[] { A, B, C, D, E, F, G, H, I, J, K, L, M, N, Q, R, S, T, U, V, W });
     }
@@ -89,35 +111,35 @@ public class Caminhos : MonoBehaviour
                 return "Você já está no seu destino!";
 
             SearchVizinhos(origem, destino);
-            return string.Join(">", caminhos.Select(c => c.Nome));
+            var menorCaminho = new List<Bloco>();
+            listaBlocos.Sort((a, b) => a.Count - b.Count);
+            menorCaminho = listaBlocos.First();
+            listaBlocos.Clear();
+            return string.Join(">", menorCaminho.Select(c => c.Nome));
         }
         return "Por favor escaneie o QrCode de localização mais proximo";
     }
     void SearchVizinhos(Bloco origem, Bloco destino)
     {
-        if (!achouCaminho)
+        foreach (var vizinho in origem.Vizinhos)
         {
-            foreach (var vizinho in origem.Vizinhos)
+            if (vizinho.Nome == destino.Nome)
             {
-                if (vizinho.Nome == destino.Nome)
-                {
-                    achouCaminho = true;
-                    caminhos.Add(vizinho);
-                    break;
-                }
-                if (!caminhos.Contains(vizinho))
-                {
-                    caminhos.Add(vizinho);
-                    SearchVizinhos(vizinho, destino);
-                    if (achouCaminho)
-                    {
-                        break;
-                    }
-                }
+                caminhos.Add(vizinho);
+                var novalista = new Bloco[caminhos.Count()];
+                caminhos.CopyTo(novalista);
+                listaBlocos.Add(novalista.ToList());
+                caminhos.Remove(vizinho);
+                break;
             }
-            if (!achouCaminho)
-                caminhos.Remove(origem);
+            if (!caminhos.Contains(vizinho))
+            {
+                caminhos.Add(vizinho);
+                SearchVizinhos(vizinho, destino);
+                caminhos.Remove(vizinho);
+            }
         }
+        caminhos.Remove(origem);
     }
 }
 

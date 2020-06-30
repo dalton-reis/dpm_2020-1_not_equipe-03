@@ -9,16 +9,19 @@ public class Map : MonoBehaviour
 {
     public Text LabelBlocoSelecionado;
     public string BlocoSelecionado = string.Empty;
+    public static Dictionary<Bloco, string> Instrucoes = new Dictionary<Bloco, string>();
 
     public string[] locais;
     public void SetSelected(string bloco)
     {
+        Instrucoes = new Dictionary<Bloco, string>();
         bloco = bloco.Remove(0, 6);
         var find = new Caminhos();
         LabelBlocoSelecionado = GameObject.Find("LabelBlocoSelecionado").GetComponent<Text>();
 
         locais = find.FindPath(bloco).Split('>');
         var caminhos = new List<string>();
+        Bloco ultimoBloco = null;
         for (int i = 0; i < locais.Length - 1; i++)
         {
             var local = RetornarLocal(locais[i]);
@@ -41,20 +44,31 @@ public class Map : MonoBehaviour
                 caminhoY = string.Empty;
 
             var conector = string.Empty;
-            var str = i + 1 == locais.Length - 1
-                ? $"para chegar no seu destino, o bloco {proximoLocal.Nome}"
-                : $"até chegar no bloco {proximoLocal.Nome}";
+            var str = string.Empty;
+            if (i + 1 == locais.Length - 1)
+            {
+                str = $"para chegar no seu destino, o bloco {proximoLocal.Nome}";
+                ultimoBloco = proximoLocal;
+            }
+            else
+            {
+                str = $"até chegar no bloco {proximoLocal.Nome}";
+            }
             if (!string.IsNullOrEmpty(caminhoX) && !string.IsNullOrEmpty(caminhoY))
                 conector = " e ";
 
+            var texto = string.Empty;
             if (local.PontosReferencia.ContainsKey(proximoLocal))
-                caminhos.Add(local.PontosReferencia.FirstOrDefault(p => p.Key == proximoLocal).Value + $" depois {(!string.IsNullOrEmpty(caminhoX) ? caminhoX : "ande")} {str}");
+                texto = local.PontosReferencia.FirstOrDefault(p => p.Key == proximoLocal).Value + $" depois {(!string.IsNullOrEmpty(caminhoX) ? caminhoX : "ande")} {str}";
             else
-                caminhos.Add($"{caminhoX}{conector}{caminhoY} " + str);
-        }
-        foreach (var passo in caminhos)
-            LabelBlocoSelecionado.text += passo + " \n";
+                texto = $"{caminhoX}{conector}{caminhoY} " + str;
 
+            Instrucoes.Add(local, texto);
+
+        }
+        Instrucoes.Add(ultimoBloco, "Este é o seu destino!");
+        var menu = new Menu();
+        menu.ChangeScene(ScenesNames.Resultado);
     }
 
     private static Bloco RetornarLocal(string nome)
