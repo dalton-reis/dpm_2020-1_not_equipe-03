@@ -25,13 +25,10 @@ public class QrCode : MonoBehaviour
 
     private IEnumerator InitializeCamera()
     {
-        // Waiting a little seem to avoid the Vuforia's crashes.
         yield return new WaitForSeconds(1.25f);
 
         var isFrameFormatSet = CameraDevice.Instance.SetFrameFormat(PIXEL_FORMAT.RGB888, true);
         Debug.Log(String.Format("FormatSet : {0}", isFrameFormatSet));
-
-        // Force autofocus.
         var isAutoFocus = CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
         if (!isAutoFocus)
         {
@@ -55,11 +52,9 @@ public class QrCode : MonoBehaviour
                 var data = barCodeReader.Decode(cameraFeed.Pixels, cameraFeed.BufferWidth, cameraFeed.BufferHeight, RGBLuminanceSource.BitmapFormat.RGB24);
                 if (data != null)
                 {
-                    // QRCode detected.
                     Init.qrCode = data.Text;
                     var menu = new Menu();
                     menu.ChangeScene(ScenesNames.MapaFurb);
-                    Debug.Log(data.Text);
                 }
             }
             catch (Exception e)
